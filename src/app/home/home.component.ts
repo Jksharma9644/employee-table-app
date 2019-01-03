@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
   constructor(public mockservice:MockService) { }
   employeelist=[];
   selectedid="";
+  searchtext="";
   ngOnInit() {
      this.emmployeeList();
   }

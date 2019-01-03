@@ -1,7 +1,6 @@
 <div class="container">
   <h2>Employee list</h2>
-  <input #txtFname placeholder="search by name" />  
-  <button  class="float-right btn btn-success" style="margin:15px" routerLink="/addNew">Add New</button>
+  <input type="text" [(ngModel)]="searchtext" placeholder="Serach any fields"/>  <button  class="float-right btn btn-success" style="margin:15px" routerLink="/addNew">Add New</button>
   <table class="table table-bordered table-sm">
     <thead>
       <tr>
@@ -12,8 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      {{txtFname.value}}
-      <tr *ngFor="let emp of employeelist">
+      <tr *ngFor="let emp of employeelist | customerEmailFilter:searchtext">
         <td>{{emp.name}}</td>
         <td>{{emp.designation}}</td>
         <td>{{emp.sallery}}</td>

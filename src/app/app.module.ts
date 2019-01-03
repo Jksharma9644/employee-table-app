@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { EditTableComponent } from './edit-table/edit-table.component';
 import { routing }  from './app.routes';
 import { AddNewComponent } from './add-new/add-new.component';
-import {SearchFilterPipe} from './home/search.directive';
+import { SearchPipe } from './home/search.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import {SearchFilterPipe} from './home/search.directive';
     HomeComponent,
     EditTableComponent,
     AddNewComponent,
-    SearchFilterPipe
+    SearchPipe
   ],
   imports: [
     BrowserModule,
