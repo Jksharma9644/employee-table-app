@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>Employee list</h2>
+  <input #txtFname placeholder="search by name" />  
+  <button  class="float-right btn btn-success" style="margin:15px" routerLink="/addNew">Add New</button>
+  <table class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>Names</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{txtFname.value}}
+      <tr *ngFor="let emp of employeelist | searchfilter: 'name' : txtFname.value">
+        <td>{{emp.name}}</td>
+        <td>{{emp.designation}}</td>
+        <td>{{emp.sallery}}</td>
+        <td>
+          <a routerLink="/edit/{{emp._id}}" >Edit</a>
+          <a  class="float-right "href="javascript:void(0)"  data-toggle="modal" data-target="#myModal" (click)="selectedId(emp._id)">Delete</a>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>delete record?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="delete()">ok</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">cancel</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
