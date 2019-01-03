@@ -13,7 +13,7 @@
     </thead>
     <tbody>
       {{txtFname.value}}
-      <tr *ngFor="let emp of employeelist | searchfilter: 'name' : txtFname.value">
+      <tr *ngFor="let emp of employeelist">
         <td>{{emp.name}}</td>
         <td>{{emp.designation}}</td>
         <td>{{emp.sallery}}</td>
